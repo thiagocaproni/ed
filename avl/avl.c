@@ -43,8 +43,10 @@ int avl_node_height( avl_node_t *node ) {
 int avl_balance_factor( avl_node_t *node ) {
 	int bf = 0;
 
-	if( node->left  ) bf -= avl_node_height( node->left );
-	if( node->right ) bf += avl_node_height( node->right );
+	if( node->left  ) 
+		bf -= avl_node_height( node->left );
+	if( node->right ) 
+		bf += avl_node_height( node->right );
 
 	return bf ;
 }
@@ -211,10 +213,13 @@ void avl_traverse_node_dfs( avl_node_t *node, int depth ) {
 
 	if( node->right ) avl_traverse_node_dfs( node->right, depth + 2 );
 
-	for( i = 0; i < depth; i++ ) putchar( ' ' );
+	for( i = 0; i < depth; i++ ) 
+		putchar( ' ' );
+	
 	printf( "%d: %d\n", node->value, avl_balance_factor( node ) );
 
-	if( node->left ) avl_traverse_node_dfs( node->left, depth + 2 );
+	if( node->left ) 
+		avl_traverse_node_dfs( node->left, depth + 2 );
 }
 
 /* Do a depth first traverse of a tree. */
