@@ -26,23 +26,18 @@ int main(){
   inicializar(&lista);	
 
 
-  inserirFim(&lista, 0);
   inserirFim(&lista, 2);
   inserirFim(&lista, 4);
   inserirFim(&lista, 6);
   inserirFim(&lista, 8);
+  inserirFim(&lista, 10);
 
   mostrar(lista);  
 
-  somarAnteriorPosterior(&lista, 4);
   somarAnteriorPosterior(&lista, 6);
+  somarAnteriorPosterior(&lista, 8);
 
-  
   mostrar(lista);  
-
-
-
-
 	
 	return 0;
 }

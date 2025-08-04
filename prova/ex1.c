@@ -81,6 +81,53 @@ void duplicarPrimeiroElemento(Fila *f){
     f->inicio->prox = novo;
 }
 
+void duplicarPrimeiroElementoGuilherme(Fila *f){
+    if(f == NULL)
+        return;
+
+    int tamanho = f->tam;
+    int primeiro;
+
+    for(int i = 0; i<tamanho; i++){
+        int valor = retira(f);
+        if(i == 0){
+            primeiro = valor;
+        
+            insere(f, primeiro);
+            insere(f, primeiro);
+        }else{
+            insere(f, valor);
+        }
+    }
+}
+
+void duplicarPrimeiroElementoMaria(Fila *f){
+    No *novo = malloc(sizeof(No));
+    novo->dado = f->inicio->dado;
+    novo->prox = f->inicio->prox;
+    f->inicio->prox = novo;
+}
+
+
+void duplicarPrimeiroElementoFelipe(Fila *f){
+
+    if(f->tam == 0)
+        return;
+    
+    
+    No *aux = f->inicio;
+    int temp = aux->dado;
+    aux = aux->prox;
+    while (aux != NULL)
+    {
+        int temp2 = aux->dado;
+        aux->dado = temp;
+        temp = temp2;
+        aux = aux->prox;
+    }
+    insere(f, temp);
+}
+
 void retiran(Fila *fila,int q)
 {
      int i;
@@ -112,7 +159,7 @@ int main(){
     //retiran(&f,3);
     apresentaFila(&f);
     
-    duplicarPrimeiroElemento(&f);
+    duplicarPrimeiroElementoGuilherme(&f);
 
     apresentaFila(&f);
     
